@@ -25,20 +25,19 @@
 // - imageUrl: 字串型別 (主要圖片網址)
 // - imagesUrl: 字串陣列型別 (其他圖片網址)
 // - num: 數字型別 (數量)
-export type ProductData {
-  // 在這裡加上型別定義
-  id: unknown
-  title: unknown
-  category: unknown
-  origin_price: unknown
-  price: unknown
-  unit: unknown
-  description: unknown
-  content: unknown
-  is_enabled: unknown
-  imageUrl: unknown
-  imagesUrl: unknown
-  num: unknown
+export type ProductData = {
+  id: string
+  title: string
+  category: string
+  origin_price: number
+  price: number
+  unit: string
+  description: string
+  content: string
+  is_enabled: number
+  imageUrl: string
+  imagesUrl: string[]
+  num: number
 }
 
 // TODO: 定義分頁資訊型別
@@ -48,47 +47,44 @@ export type ProductData {
 // - has_pre: 是否有前一頁 (布林值)
 // - has_next: 是否有下一頁 (布林值)
 // - category: 分類 (字串)
-export type Pagination {
-  // 在這裡加上型別定義，將 unknown 替換為正確的型別
-  total_pages: unknown
-  current_page: unknown
-  has_pre: unknown
-  has_next: unknown
-  category: unknown
+export type Pagination = {
+  total_pages: number
+  current_page: number
+  has_pre: boolean
+  has_next: boolean
+  category: string
 }
 
 // TODO: 定義建立商品參數型別
 // 提示：建立商品時不需要 id 和 num 欄位
-export type CreateProductParams {
-  // 在這裡加上型別定義，將 unknown 替換為正確的型別
-  title: unknown
-  category: unknown
-  origin_price: unknown
-  price: unknown
-  unit: unknown
-  description: unknown
-  content: unknown
-  is_enabled: unknown
-  imageUrl: unknown
-  imagesUrl: unknown
+export type CreateProductParams = {
+  title: string
+  category: string
+  origin_price: number
+  price: number
+  unit: string
+  description: string
+  content: string
+  is_enabled: number
+  imageUrl: string
+  imagesUrl: string[]
 }
 
 // TODO: 定義編輯商品參數型別
 // 提示：編輯商品需要 id 和 data 物件
-export type EditProductParams {
-  // 在這裡加上型別定義，將 unknown 替換為正確的型別
-  id: unknown
+export type EditProductParams = {
+  id: string
   data: {
-    title: unknown
-    category: unknown
-    origin_price: unknown
-    price: unknown
-    unit: unknown
-    description: unknown
-    content: unknown
-    is_enabled: unknown
-    imageUrl: unknown
-    imagesUrl: unknown
+    title: string
+    category: string
+    origin_price: number
+    price: number
+    unit: string
+    description: string
+    content: string
+    is_enabled: number
+    imageUrl: string
+    imagesUrl: string[]
   }
 }
 
@@ -98,20 +94,18 @@ export type EditProductParams {
 // - products: 商品陣列 (ProductData[])
 // - pagination: 分頁資訊 (Pagination)
 // - messages: 訊息陣列 (未知型別陣列)
-export type GetProductsResponse {
-  // 在這裡加上型別定義，將 unknown 替換為正確的型別
-  success: unknown
-  products: unknown
-  pagination: unknown
-  messages: unknown
+export type GetProductsResponse = {
+  success: boolean
+  products: ProductData[]
+  pagination: Pagination
+  messages: unknown[]
 }
 
 // TODO: 定義訊息回應基本型別
 // 提示：包含 success (布林值) 和 message (字串)
-type MessageResponse {
-  // 在這裡加上型別定義，將 unknown 替換為正確的型別
-  success: unknown
-  message: unknown
+type MessageResponse = {
+  success: boolean
+  message: string
 }
 
 // TODO: 使用 MessageResponse 定義以下型別
@@ -122,8 +116,7 @@ export type DeleteProductResponse = MessageResponse
 
 // TODO: 定義圖片上傳回應型別
 // 提示：包含 success (布林值) 和 imageUrl (字串)
-export type UploadImageResponse {
-  // 在這裡加上型別定義，將 unknown 替換為正確的型別
-  success: unknown
-  imageUrl: unknown
+export type UploadImageResponse = {
+  success: boolean
+  imageUrl: string
 }
